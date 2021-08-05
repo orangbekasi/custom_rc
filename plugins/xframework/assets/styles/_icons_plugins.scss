@@ -1,0 +1,131 @@
+/*
+ This file contains icon styles for all the Roundcube Plus plugins.
+ */
+
+body.#{$iconClass} {
+    // rcp skins + elastic, not larry
+    &.xskin,
+    &.xelastic {
+        #button-apps:before { @include style($gridSmall); }
+        #show-mobile-xsidebar:before { @include style($sidebar); }
+        #show-xsidebar:before { @include style($chevronLeft); }
+        #xsidebar-menu a.hide:before { @include style($chevronRight); }
+    }
+
+    // rcp plugins in settings / preferences list (elastic only)
+    &.xelastic {
+        @each $plugin, $icon in $plugins {
+            #sections-table tr.#{$plugin} > td.section:before { @include style($icon); }
+        }
+    }
+
+    // rcp plugins in apps dropdown menu
+    @each $plugin, $icon in $plugins {
+        #apps-menu a.app-item-#{$plugin} div.icon:before { @include style($icon); }
+    }
+
+    // information boxes and popups
+    .xinfo:before { @include style($information); }
+    .xsave-hint:before { @include style($exclamation); }
+
+    // spinners
+    .xspinner:before { @include style($spinner); }
+
+    // general use
+    .xinformation:before { @include style($information); }
+    .xexclamation:before { @include style($exclamation); }
+    .xhelp:before { @include style($help); }
+
+    // settings: look and feel
+    .xsave-hint:before { @include style($information); }
+
+    // sidebar
+    #show-xsidebar:before { @include style($chevronLeft); }
+    #hide-xsidebar a.button.hide:before { @include style($chevronRight); }
+    #xsidebar-order-table td.title label:before { @include style($bars); }
+    #xsidebar-order-note:before { @include style($information); }
+    #xsidebar .sidebar-settings-url:before { @include style($gear); }
+    #xsidebar .sidebar-toggle:before { @include style($chevronUp); }
+    #xsidebar .collapsed .sidebar-toggle:before { @include style($chevronDown); }
+
+    // xcalendar
+
+    #xcalendar-toolbar .calendar-day:before { @include style($calendarDay); }
+    #xcalendar-toolbar .calendar-week:before { @include style($gridLarge); }
+    #xcalendar-toolbar .calendar-month:before { @include style($gridSmall); }
+    #xcalendar-toolbar .calendar-agenda:before { @include style($list); }
+    #xcalendar-toolbar .calendar-settings:before { @include style($gear); }
+    #xcalendar-toolbar .calendar-add-event:before { @include style($plusSquare); }
+    #calendar-list-container .new-calendar:before { @include style($plusCircle); }
+    #calendar-list-container .calendar-item .edit:before { @include style($edit); }
+
+    #event-edit .attendee-item span.status {
+        .needs-action:before { @include style($question); color: #aaa; }
+        .accepted:before { @include style($checkSquare); color: #2E7D32; }
+        .declined:before { @include style($timesCircle); color: #c62828; }
+        .tentative:before { @include style($question); color: #FF8F00; }
+        .delegated:before { @include style($forward); color: #4527A0; }
+    }
+
+    .restore-popup a.hide-popup:after { @include style($times); }
+    #calendar-grid .fc-today-button:before { @include style($home); display: inline !important; }
+    #calendar-grid .fc-prev-button:before { @include style($chevronLeft); display: inline !important; }
+    #calendar-grid .fc-next-button:before { @include style($chevronRight); display: inline !important; }
+    .xcalendar-sun-data:before { @include style($sun); }
+
+    #layout .xcalendar-mobile-show-sidebar:before { @include style($calendar); }
+    #layout .xcalendar-mobile-show-content:before { @include style($gridSmall); }
+
+    &.xmobile {
+        #main-menu #xcalendar-main span:before { @include style($calendar); }
+        #main-menu #xcalendar-date span:before { @include style($calendarShort); }
+        #main-menu #xcalendar-list span:before { @include style($calendarList); }
+        #main-menu #xcalendar-toolbar-button span:before { @include style($options); }
+        a.tab-summary:before { @include style($wrench); }
+        a.tab-share:before { @include style($share); }
+        a.tab-publish:before { @include style($monitor); }
+        a.tab-sync:before { @include style($connections); }
+        a.tab-recurrence:before { @include style($repeat); }
+        a.tab-alarms:before { @include style($clock); }
+        a.tab-attendees:before { @include style($users); }
+        a.tab-attachments:before { @include style($attachment); }
+        a.tab-sharing:before { @include style($share); }
+        a.tab-import-export:before { @include style($import); }
+        #calendar-list-container .new-calendar:before { @include style($plusCircle); }
+        #calendar-list-container .calendar-item .edit:before { @include style($edit); }
+    }
+
+    // xsignature
+    .cell-editor:before { @include style($gear); }
+    .format-button.button-align-left:before { @include style($alignLeft); }
+    .format-button.button-align-center:before { @include style($alignCenter); }
+    .format-button.button-align-right:before { @include style($alignRight); }
+    .template-table .t-social span:before { @include style($dot); }
+
+    // xwebdav
+    #xwebdav-dialog-controller {
+        #content-list {
+            .breadcrumbs .directory.home span:before { @include style($home); }
+            table tr.dir .icon:before { @include style($folder); }
+            table tr.file .icon:before { @include style($textFile); }
+            .checkbox:before { @include style($check); }
+        }
+    }
+
+    // xgoogle_drive, xdropbox
+    #xgoogle_drive-compose-button button.btn-secondary:before { @include style($googleDrive); }
+    #xdropbox-compose-button button.btn-secondary:before { @include style($dropbox); }
+
+    // x2fa (using line icons for all skins because the other ones look bad)
+    #settings-menu a.x2fa:before { @include style($lock); }
+    .x2fa-method-icon-email:before { @include style("\EC1C" /*$envelopeOpen*/);  }
+    .x2fa-method-icon-totp:before { @include style("\EC84" /*$phone*/); }
+    .x2fa-method-icon-sms:before { @include style("\EC3F" /*$speechBubble*/); }
+    .x2fa-method-icon-yubikey:before { @include style("\EC85" /*$yubikey*/); }
+    .x2fa-method-icon-recovery:before { @include style("\EC3D" /*$textFile*/); }
+    .x2fa-option-logout:before { @include style("\EC20" /*$logout*/); }
+
+    // twofactor_gauthenticator
+    &.xelastic #settingstabplugintwofactor_gauthenticator a:before { @include style($user); }
+    #twofactor_gauthenticator-form .show-codes:before { @include style($eye); }
+}

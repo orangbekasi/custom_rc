@@ -1,0 +1,125 @@
+
+@mixin text-color($important: false) {
+    color: #333 unquote(if($important, "!important", ""));
+    html.dark-mode & { color: #c5d1d3 unquote(if($important, "!important", "")); }
+}
+
+@mixin text-highlight-color($important: false) {
+    color: #141414 unquote(if($important, "!important", ""));
+    html.dark-mode & { color: #e5f1f3 unquote(if($important, "!important", "")); }
+}
+
+@mixin text-dim-color($important: false) {
+    color: #aaa unquote(if($important, "!important", ""));
+    html.dark-mode & { color: #5a6668 unquote(if($important, "!important", "")); }
+}
+
+@mixin border-color($important: false) {
+    border-color: #ddd unquote(if($important, "!important", ""));
+    html.dark-mode & { border-color: #4d6066 unquote(if($important, "!important", "")); }
+}
+
+@mixin border-highlight-color($important: false) {
+    border-color: #aaa unquote(if($important, "!important", ""));
+    html.dark-mode & { border-color: #e5f1f3 unquote(if($important, "!important", "")); }
+}
+
+@mixin background-color($important: false) {
+    background-color: #fff unquote(if($important, "!important", ""));
+    html.dark-mode & { background-color: #21292c unquote(if($important, "!important", "")); }
+}
+
+@mixin background-highlight-color($percent: 5, $important: false) {
+    background-color: rgba(0, 0, 0, $percent / 100) unquote(if($important, "!important", ""));
+    html.dark-mode & { background-color: rgba(255, 255, 255, $percent / 100) unquote(if($important, "!important", "")) }
+}
+
+@mixin background-error-color($important: false) {
+    background-color: #ffcccc unquote(if($important, "!important", ""));
+    html.dark-mode & { background-color: #60252a unquote(if($important, "!important", "")) }
+}
+
+@mixin error-text-color($important: false) {
+    color: #7e1c16 unquote(if($important, "!important", ""));
+    html.dark-mode & { color: #ef9a9a unquote(if($important, "!important", "")); }
+}
+
+@mixin success-text-color($important: false) {
+    color: #006600 unquote(if($important, "!important", ""));
+    html.dark-mode & { color: #82d57f unquote(if($important, "!important", "")); }
+}
+
+@mixin page-mask {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    background: rgba(0, 0, 0, 0.7);
+}
+
+@mixin popup {
+    background-color: #fff;
+    border: 1px solid #ddd;
+
+    html.dark-mode & {
+        background-color: #161b1d;
+        border-color: #4d6066;
+        box-shadow: none;
+    }
+}
+
+@mixin success-box {
+    background-color: #E0F2F1;
+    color: #006053;
+    border: 1px solid #b0e3ca;
+    border-radius: 4px;
+    padding: 5px;
+
+    html.dark-mode & {
+        background-color: #00553f;
+        color: #fff;
+        border-color: transparent;
+    }
+}
+
+@mixin error-box {
+    background-color: #ffe5e5;
+    color: #7e1c16;
+    border: 1px solid #fcc3bb;
+    border-radius: 4px;
+    padding: 5px;
+
+    html.dark-mode & {
+        background-color: #5a2417;
+        color: #fff;
+        border-color: transparent;
+    }
+}
+
+@mixin warning-box {
+    background-color: #fef893;
+    color: #795000;
+    border: 1px solid #ffdf0e;
+    border-radius: 4px;
+    padding: 5px;
+
+    html.dark-mode & {
+        background-color: #654f00;
+        color: #fff;
+        border-color: transparent;
+    }
+}
+
+@mixin info-box {
+    background-color: #FFF3E0;
+    border: 1px solid #FFAB91;
+    border-radius: 4px;
+    padding: 5px;
+
+    html.dark-mode & {
+        background-color: #463813;
+        border-color: transparent;
+    }
+}
